@@ -1,0 +1,72 @@
+body {
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  }
+
+.select1 input {
+  outline: 0;
+  background: #8CC63F;
+  background-image: none;
+  width: 20%;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,.5);
+  margin-top: 256px;
+  margin-left: 200px;
+  font-size: 17px;
+  display: flex;
+  float: left;
+}
+
+.select2 input {
+  outline: 0;
+  background: #8CC63F;
+  background-image: none;
+  width: 20%;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,.5);
+  margin-top: 256px;
+  margin-right: 200px;
+  font-size: 17px;
+  display: flex;
+  float: right;
+}
+
+.select-item{
+  background-color: #608929;
+}
+
+.select-item:hover{
+  background-color: red;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 369px;
+  margin-left: 127px;
+}
+
+h1{
+  font-size: 25px;
+  position: absolute;
+  margin-left: 672px;
+  margin-top: 262px;
+
+}

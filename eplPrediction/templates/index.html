@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table{
+        font-family: sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+      }
+            td,th {
+        border: 3px solid #ddd;
+      padding: 10px;
+      } 
+      th{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-align: center;
+        background-color: #385623;
+        color: white;
+        width: 12%;
+      }
+      td{
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  background-color: #538135;
+  color: white;
+}
+
+      </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Odds</title>
+    <script src="{{url_for('static', filename='test_index.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" /> 
+  </head>
+  <body>
+    <form action="/odds" method="POST">
+      <div class="select">
+        <div class="select1">
+          <input list="teams1" name="team1" id="team" placeholder="Select Team" onchange="validateForm()" />
+          <datalist id="teams1">
+          </datalist>
+        </div>
+
+        <h1>VS</h1>
+        <div class="select2">
+            <input list="teams2" name="team2" id="team" placeholder="Select Team" onchange="validateForm()" />
+            <datalist id="teams2">
+            </datalist>
+        </div>
+
+        <button type="submit" class="button" id="odds" disabled>
+          Generate Odds
+        </button>
+      </div>
+    </form>
+    {% if odds %}
+        <br>
+     <center><table style="width:65%">
+        <tr>
+          {% for i in range(odds|length-7) %}
+          <th>{{ odds[-5] }}</th>
+          {% endfor %}
+          <th>Draw</th>
+          {% for i in range(odds|length-7) %}
+          <th>{{ odds[-4] }}</th>
+          {% endfor %}
+        </tr>
+        <tr>
+            {% for i in range(odds|length-7) %}
+            <td>{{ odds[-6] }} </td>
+            {% endfor %}
+
+          {% for i in range(odds|length-7) %}
+          <td>{{ odds[-7] }}</td>
+          {% endfor %}
+
+          {% for i in range(odds|length-7) %}
+          <td>{{ odds[0] }}</td>
+          {% endfor %}
+        </tr>
+     
+     </table></center>
+
+     <center>
+      <!-- <strong>Goal Prediction:</strong> -->
+      <!-- <span>2</span> : <span>0</span> -->
+     </center>
+
+     <br>
+     <center><table style="width:65%">
+        <tr>
+          {% for i in range(odds|length-7) %}
+          <th>Projected {{ odds[-5] }} Goals</th>
+          {% endfor %}
+          {% for i in range(odds|length-7) %}
+          <th>Projected {{ odds[-4] }} Goals</th>
+          {% endfor %}
+          <th>Total Goals </th>
+        </tr>
+        <tr>
+            {% for i in range(odds|length-7) %}
+            <td>{{ odds[-3] }} </td>
+            {% endfor %}
+
+          {% for i in range(odds|length-7) %}
+          <td>{{ odds[-2] }}</td>
+          {% endfor %}
+          <td>{{odds[-1]}}</td>
+        </tr>
+     
+     </table></center>
+     {% endif %}
+   
+  </body>
+</html>
